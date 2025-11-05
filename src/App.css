@@ -1,0 +1,114 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+    background-color: aliceblue;
+    margin: auto;
+    padding: 15px;
+
+    /*telos cucc*/
+    touch-action: manipulation;
+}
+
+.app-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background-color: white;
+    border-radius: 8px;
+    border: solid 2px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    border-radius: 8px;
+    border: solid 2px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    /*telos cucc*/
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.next-round-btn {
+    border: solid 2px;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    /*telos cucc*/
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.area-item {
+    margin: 0.3rem;
+    background-color: white;
+    border: solid 1px;
+    border-radius: 8px;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    /*telos cucc*/
+    user-select: none;
+    word-break: break-word;
+}
+
+.area-item.selected {
+    background-color: lightgray;
+}
+
+.title h1 {
+    font-size: 3rem;
+    color: darkred;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .areas-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
