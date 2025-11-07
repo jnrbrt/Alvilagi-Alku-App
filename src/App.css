@@ -63,6 +63,28 @@ h1 {
     -webkit-tap-highlight-color: transparent;
 }
 
+.sub-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.sub-btn {
+    border-radius: 6px;
+    border: solid 2px;
+    width: auto;
+    padding: 6px 12px;
+    height: auto;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    /*telos cucc*/
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 .next-round-btn {
     border: solid 2px;
     border-radius: 8px;
@@ -82,12 +104,10 @@ h1 {
 .area-item {
     margin: 0.3rem;
     background-color: white;
-    border: solid 1px;
+    border: solid 3px gray;
     border-radius: 8px;
     padding: 15px 10px;
     text-align: center;
-    font-size: 0.9rem;
-    font-weight: bold;
     cursor: pointer;
 
     /*telos cucc*/
@@ -95,8 +115,30 @@ h1 {
     word-break: break-word;
 }
 
+.area-item.money-area {
+    border-color: #12872e;
+}
+
+.area-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.area-resources {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #333;
+    margin-top: 8px;
+    line-height: 1.3;
+    font-weight: bold;
+}
+
 .area-item.selected {
-    background-color: lightgray;
+    background-color: rgba(128, 128, 128, 0.4);
+}
+
+.money-area.selected {
+    background-color: rgba(161, 209, 161, 0.4);
 }
 
 .title h1 {

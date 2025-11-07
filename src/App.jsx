@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const allAreas = [
@@ -7,6 +7,7 @@ const allAreas = [
     { name: 'Kikötőnegyed', resources: { penz: 100, befolyas: 0, csempeszek: 0, loszer: 0 } },
     { name: 'Luxus lakópark', resources: { penz: 100, befolyas: 0, csempeszek: 0, loszer: 0 } },
     { name: 'Tanyanegyed', resources: { penz: 100, befolyas: 0, csempeszek: 0, loszer: 0 } },
+
     //nem penzes teruletek
     { name: 'Gyárnegyed', resources: { penz: 0, befolyas: 1, csempeszek: 1, loszer: 1 } },
     { name: 'Piac', resources: { penz: 0, befolyas: 1, csempeszek: 1, loszer: 1 } },
@@ -18,16 +19,28 @@ const allAreas = [
     { name: 'Kiserdő', resources: { penz: 0, befolyas: 1, csempeszek: 1, loszer: 1 } },
 ];
 
+const loadFromStorage = (key, defaultValue) => {
+    const saved = localStorage.getItem(key);
+    return saved !== null ? parseInt(saved, 10) : defaultValue;
+};
+
 function App() {
-    const [penz, setPenz] = useState(0);
-    const [befolyas, setBefolyas] = useState(0);
-    const [csempeszek, setCsempeszek] = useState(0);
-    const [loszer, setLoszer] = useState(0);
+    const [penz, setPenz] = useState(() => loadFromStorage('app_penz', 0));
+    const [befolyas, setBefolyas] = useState(() => loadFromStorage('app_befolyas', 0));
+    const [csempeszek, setCsempeszek] = useState(() => loadFromStorage('app_csempeszek', 0));
+    const [loszer, setLoszer] = useState(() => loadFromStorage('app_loszer', 0));
 
     const [selectedAreas, setSelectedAreas] = useState([]);
 
+    useEffect(() => {
+        localStorage.setItem('app_penz', penz);
+        localStorage.setItem('app_befolyas', befolyas);
+        localStorage.setItem('app_csempeszek', csempeszek);
+        localStorage.setItem('app_loszer', loszer);
+    }, [penz, befolyas, csempeszek, loszer]);
+
     const updateValue = (setter, amount) => {
-        setter(prevValue => Math.max(0, prevValue + amount));
+        setter(prevValue => (prevValue + amount));
     };
 
     const toggleAreaSelection = (areaName) => {
@@ -77,12 +90,12 @@ function App() {
                     <h3>Pénz</h3>
                     <div className="count">{penz}</div>
                     <div className="buttons">
-                        <button
-                            className="btn btn-minus"
-                            onClick={() => updateValue(setPenz, -50)}>-</button>
-                        <button
-                            className="btn btn-plus"
-                            onClick={() => updateValue(setPenz, 50)}>+</button>
+                        <button className="btn btn-minus" onClick={() => updateValue(setPenz, -50)}>-</button>
+                        <button className="btn btn-plus" onClick={() => updateValue(setPenz, 50)}>+</button>
+                    </div>
+                    <div className="sub-buttons">
+                        <button className="sub-btn btn-minus" onClick={() => updateValue(setPenz, -100)}>-100</button>
+                        <button className="sub-btn btn-plus" onClick={() => updateValue(setPenz, 100)}>+100</button>
                     </div>
                 </div>
 
@@ -90,12 +103,12 @@ function App() {
                     <h3>Befolyás</h3>
                     <div className="count">{befolyas}</div>
                     <div className="buttons">
-                        <button
-                            className="btn btn-minus"
-                            onClick={() => updateValue(setBefolyas, -1)}>-</button>
-                        <button
-                            className="btn btn-plus"
-                            onClick={() => updateValue(setBefolyas, 1)}>+</button>
+                        <button className="btn btn-minus" onClick={() => updateValue(setBefolyas, -1)}>-</button>
+                        <button className="btn btn-plus" onClick={() => updateValue(setBefolyas, 1)}>+</button>
+                    </div>
+                    <div className="sub-buttons">
+                        <button className="sub-btn btn-minus" onClick={() => updateValue(setBefolyas, -5)}>-5</button>
+                        <button className="sub-btn btn-plus" onClick={() => updateValue(setBefolyas, 5)}>+5</button>
                     </div>
                 </div>
 
@@ -103,12 +116,12 @@ function App() {
                     <h3>Csempészáru</h3>
                     <div className="count">{csempeszek}</div>
                     <div className="buttons">
-                        <button
-                            className="btn btn-minus"
-                            onClick={() => updateValue(setCsempeszek, -1)}>-</button>
-                        <button
-                            className="btn btn-plus"
-                            onClick={() => updateValue(setCsempeszek, 1)}>+</button>
+                        <button className="btn btn-minus" onClick={() => updateValue(setCsempeszek, -1)}>-</button>
+                        <button className="btn btn-plus" onClick={() => updateValue(setCsempeszek, 1)}>+</button>
+                    </div>
+                    <div className="sub-buttons">
+                        <button className="sub-btn btn-minus" onClick={() => updateValue(setCsempeszek, -5)}>-5</button>
+                        <button className="sub-btn btn-plus" onClick={() => updateValue(setCsempeszek, 5)}>+5</button>
                     </div>
                 </div>
 
@@ -116,12 +129,12 @@ function App() {
                     <h3>Lőszer</h3>
                     <div className="count">{loszer}</div>
                     <div className="buttons">
-                        <button
-                            className="btn btn-minus"
-                            onClick={() => updateValue(setLoszer, -1)}>-</button>
-                        <button
-                            className="btn btn-plus"
-                            onClick={() => updateValue(setLoszer, 1)}>+</button>
+                        <button className="btn btn-minus" onClick={() => updateValue(setLoszer, -1)}>-</button>
+                        <button className="btn btn-plus" onClick={() => updateValue(setLoszer, 1)}>+</button>
+                    </div>
+                    <div className="sub-buttons">
+                        <button className="sub-btn btn-minus" onClick={() => updateValue(setLoszer, -5)}>-5</button>
+                        <button className="sub-btn btn-plus" onClick={() => updateValue(setLoszer, 5)}>+5</button>
                     </div>
                 </div>
             </div>
@@ -132,9 +145,21 @@ function App() {
             <div className="areas-grid">
                 {allAreas.map((area) => {
                     const isSelected = selectedAreas.includes(area.name);
+                    const isMoneyArea = area.resources.penz > 0;
+                    const { penz, befolyas, csempeszek, loszer } = area.resources;
 
                     return (
-                        <div key={area.name} className={`area-item ${isSelected ? 'selected' : ''}`} onClick={() => toggleAreaSelection(area.name)}>{area.name}</div>
+                        <div
+                            key={area.name}
+                            className={`area-item ${isSelected ? 'selected' : ''} ${isMoneyArea ? 'money-area' : ''}`}
+                            onClick={() => toggleAreaSelection(area.name)}
+                        >
+                            <div className="area-name">{area.name}</div>
+                            <div className="area-resources">
+                                {`P: ${penz} | B: ${befolyas} | CS: ${csempeszek} | L: ${loszer}`}
+                                {}
+                            </div>
+                        </div>
                     );
                 })}
             </div>
