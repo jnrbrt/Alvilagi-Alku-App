@@ -19,24 +19,24 @@ const allAreas = [
     { name: 'Kiserdő', resources: { penz: 0, befolyas: 1, csempeszek: 1, loszer: 1 } },
 ];
 
-const loadFromStorage = (key, defaultValue) => {
-    const saved = localStorage.getItem(key);
+const loadFromSession = (key, defaultValue) => {
+    const saved = sessionStorage.getItem(key);
     return saved !== null ? parseInt(saved, 10) : defaultValue;
 };
 
 function App() {
-    const [penz, setPenz] = useState(() => loadFromStorage('app_penz', 0));
-    const [befolyas, setBefolyas] = useState(() => loadFromStorage('app_befolyas', 0));
-    const [csempeszek, setCsempeszek] = useState(() => loadFromStorage('app_csempeszek', 0));
-    const [loszer, setLoszer] = useState(() => loadFromStorage('app_loszer', 0));
+    const [penz, setPenz] = useState(() => loadFromSession('app_penz', 0));
+    const [befolyas, setBefolyas] = useState(() => loadFromSession('app_befolyas', 0));
+    const [csempeszek, setCsempeszek] = useState(() => loadFromSession('app_csempeszek', 0));
+    const [loszer, setLoszer] = useState(() => loadFromSession('app_loszer', 0));
 
     const [selectedAreas, setSelectedAreas] = useState([]);
 
     useEffect(() => {
-        localStorage.setItem('app_penz', penz);
-        localStorage.setItem('app_befolyas', befolyas);
-        localStorage.setItem('app_csempeszek', csempeszek);
-        localStorage.setItem('app_loszer', loszer);
+        sessionStorage.setItem('app_penz', penz);
+        sessionStorage.setItem('app_befolyas', befolyas);
+        sessionStorage.setItem('app_csempeszek', csempeszek);
+        sessionStorage.setItem('app_loszer', loszer);
     }, [penz, befolyas, csempeszek, loszer]);
 
     const updateValue = (setter, amount) => {
