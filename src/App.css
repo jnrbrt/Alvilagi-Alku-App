@@ -1,22 +1,37 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
-    background-color: aliceblue;
-    margin: auto;
-    padding: 15px;
+    background-color: #dddddd;
+    margin: 0;
+    padding: 0;
 
     /*telos cucc*/
     touch-action: manipulation;
 }
 
+.app-header {
+    width: 100%;
+    background-color: #2c2c2c;
+    padding: 10px 0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
 .app-container {
     max-width: 700px;
     margin: 0 auto;
+    padding: 15px;
 }
 
 h1 {
     text-align: center;
 }
+
+#resources-section {
+    scroll-margin-top: 20px;
+}
+
 
 .stats-grid {
     display: grid;
@@ -89,12 +104,16 @@ h1 {
     border: solid 2px;
     border-radius: 8px;
     padding: 15px 20px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     cursor: pointer;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
+
+    background-color: #ecffeb;
+    border-color: #55b71c;
+    color: #31b71c;
 
     /*telos cucc*/
     user-select: none;
@@ -120,12 +139,12 @@ h1 {
 }
 
 .area-name {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
 .area-resources {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: normal;
     color: #333;
     margin-top: 8px;
@@ -141,16 +160,61 @@ h1 {
     background-color: rgba(161, 209, 161, 0.4);
 }
 
+.title {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 .title h1 {
     font-size: 3rem;
     color: darkred;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 10px 0;
 }
 
 @media (min-width: 768px) {
     .stats-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+
     .areas-grid {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+}
+
+.end-game-btn {
+    border: solid 2px;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    background-color: #ffebee;
+    border-color: #b71c1c;
+    color: #b71c1c;
+
+    /*telos cucc*/
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-footer {
+    width: 100%;
+    background-color: #2c2c2c;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.app-footer p {
+    margin: 0;
+    font-size: 0.9rem;
 }
