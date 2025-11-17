@@ -3,20 +3,21 @@ import './App.css';
 
 const allAreas = [
     //penzes teruletek
-    {name: 'Lakótelep', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 0}},
-    {name: 'Kikötőnegyed', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 0}},
-    {name: 'Luxus lakópark', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 0}},
-    {name: 'Tanyanegyed', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 0}},
+    {name: 'Lakótelep', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 5}},
+    {name: 'Kikötőnegyed', resources: {penz: 100, befolyas: 0, csempeszek: 5, loszer: 0}},
+    {name: 'Luxus lakópark', resources: {penz: 100, befolyas: 0, csempeszek: 0, loszer: 5}},
+    {name: 'Tanyanegyed', resources: {penz: 100, befolyas: 0, csempeszek: 5, loszer: 0}},
 
     //nem penzes teruletek
-    {name: 'Gyárnegyed', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Piac', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Főtér', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Vasútállomás', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Kocsmanegyed', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Turistanegyed', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
+    {name: 'Gyárnegyed', resources: {penz: 0, befolyas: 1, csempeszek: 0, loszer: 2}},
+    {name: 'Piac', resources: {penz: 0, befolyas: 2, csempeszek: 1, loszer: 0}},
+    {name: 'Főtér', resources: {penz: 0, befolyas: 3, csempeszek: 3, loszer: 3}},
+    {name: 'Vasútállomás', resources: {penz: 0, befolyas: 0, csempeszek: 1, loszer: 0}},
+    {name: 'Kocsmanegyed', resources: {penz: 0, befolyas: 0, csempeszek: 0, loszer: 3}},
+    {name: 'Turistanegyed', resources: {penz: 0, befolyas: 1, csempeszek: 3, loszer: 0}},
     {name: 'Állatkert', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
-    {name: 'Kiserdő', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 1}},
+    {name: 'Kiserdő', resources: {penz: 0, befolyas: 1, csempeszek: 1, loszer: 2}},
+    {name: 'Egyetemváros', resources: {penz: 0, befolyas: 4, csempeszek: 0, loszer: 0}},
 ];
 
 const loadFromSession = (key, defaultValue) => {
